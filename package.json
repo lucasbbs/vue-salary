@@ -13,6 +13,9 @@
         "eslint-check": "eslint --print-config .eslintrc.js | eslint-config-prettier-check"
     },
     "dependencies": {
+        "material-design-icons": "^3.0.1",
+        "materialize": "^1.0.0",
+        "materialize-css": "^1.0.0",
         "rxjs": "^6.2.0",
         "vue": "^2.5.11"
     },

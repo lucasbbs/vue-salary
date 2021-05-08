@@ -1,46 +1,57 @@
 <template>
   <div id="app">
-    <div class="row">
-      <h3>Cálculo de salário com Vue.js</h3>
-    </div>
-    <br />
-    <br />
-
-    <div class="content">
-      <div class="mainContent">
-        <h3>Cálculo em tempo real</h3>
-
-        <labeled-input
-          :onInputChange="updateSalario"
-          customId="inputSalarioBruto"
-          label="Salário bruto:"
-        />
-        <labeled-input
-          :onInputChange="updateDependentes"
-          customId="inputDependentes"
-          label="Dependentes:"
-        />
-        <labeled-input :value="salario.baseINSS" currency label="Base INSS:" disabled />
-
-        <labeled-input :value="salario.descontoINSS" currency label="Desconto INSS:" disabled />
-        <labeled-input
-          :value="salario.descontoDependentes"
-          currency
-          label="Desconto Dependedentes:"
-          disabled
-        />
-
-        <labeled-input :value="salario.baseIRPF" currency label="Base IRPF:" disabled />
-
-        <labeled-input :value="salario.descontoIRPF" currency label="Desconto IRPF:" disabled />
-
-        <labeled-input
-          :value="salario.salarioLiquido"
-          currency
-          label="Salário líquido:"
-          customId="inputSalarioLiquido"
-          disabled
-        />
+    <div class="container card">
+      <h4 class="center-align">Vue Salário</h4>
+      <div class="row">
+        <div class="input-field col s6">
+          <i class="material-icons prefix"> attach_money </i>
+          <labeled-input
+            :onInputChange="updateSalario"
+            customId="inputSalarioBruto"
+            label="Salário bruto:"
+          />
+        </div>
+        <div class="input-field col s6">
+          <i class="material-icons prefix"> face </i>
+          <labeled-input
+            :onInputChange="updateDependentes"
+            customId="inputDependentes"
+            label="Dependentes:"
+          />
+        </div>
+      </div>
+      <div class="row" style="margin-top: 80px">
+        <div class="input-field col s3">
+          <labeled-input :value="salario.baseINSS" currency label="Base INSS:" disabled />
+        </div>
+        <div class="input-field col s2">
+          <labeled-input :value="salario.descontoINSS" currency label="Desconto INSS:" disabled />
+        </div>
+        <div class="input-field col s3">
+          <labeled-input
+            :value="salario.descontoDependentes"
+            currency
+            label="Desconto Dependedentes:"
+            disabled
+          />
+        </div>
+        <div class="input-field col s2">
+          <labeled-input :value="salario.baseIRPF" currency label="Base IRPF:" disabled />
+        </div>
+        <div class="input-field col s2">
+          <labeled-input :value="salario.descontoIRPF" currency label="Desconto IRPF:" disabled />
+        </div>
+      </div>
+      <div class="row" style="margin-top: 80px">
+        <div class="input-field col s2">
+          <labeled-input
+            :value="salario.salarioLiquido"
+            currency
+            label="Salário líquido:"
+            customId="inputSalarioLiquido"
+            disabled
+          />
+        </div>
       </div>
     </div>
   </div>
@@ -63,9 +74,6 @@ export default {
 
   data() {
     return {
-      /**
-       * Objeto da classe salário
-       */
       salario: new Salario(0),
     };
   },
@@ -94,33 +102,26 @@ export default {
 
 <style>
 body {
-  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu',
+    'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-.row {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0 auto;
-}
-
-.content {
+.default-flex-row {
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  align-items: center;
+  justify-content: flex-start;
 }
 
-.mainContent {
-  border: 1px solid gray;
+.padding {
   padding: 10px;
-  margin-right: 30px;
-  width: 50%;
 }
 
-.sideContent {
-  border: 1px solid gray;
-  padding: 10px;
-  margin-right: 30px;
-  width: 50%;
+.card {
+  margin: 0 auto !important;
+  height: 450px;
 }
 </style>

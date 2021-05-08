@@ -4,18 +4,22 @@ const tabelaINSS_2021 = [
   {
     ate: 1100,
     aliquota: 7.5,
+    deducao: 0,
   },
   {
     ate: 2203.48,
     aliquota: 9,
+    deducao: 16.5,
   },
   {
     ate: 3305.22,
     aliquota: 12,
+    deducao: 82.61,
   },
   {
     ate: 6433.57,
     aliquota: 14,
+    deducao: 148.72,
   },
   {
     ate: Number.MAX_SAFE_INTEGER,
@@ -104,8 +108,9 @@ export class Salario {
     let descontoINSS = 0;
     for (let item of tabelaINSS_2021) {
       if (this._baseINSS <= item.ate) {
-        descontoINSS = Math.min(this._baseINSS * (item.aliquota / 100), TETO_INSS_2021);
-
+        descontoINSS = (this._baseINSS * item.aliquota) / 100;
+        descontoINSS -= descontoINSS >= TETO_INSS_2021 ? 0 : item.deducao;
+        descontoINSS = Math.min(TETO_INSS_2021, descontoINSS);
         break;
       }
     }
