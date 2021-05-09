@@ -1,7 +1,10 @@
 <template>
   <div id="app">
     <div class="container card">
-      <h4 class="center-align">Vue Salário</h4>
+      <div style="display: flex; justify-content: center">
+        <img src="./assets/logo.png" width="80px" alt="Vue" />
+        <h4 class="center-align">Vue Salário</h4>
+      </div>
       <div class="row">
         <div class="input-field col s6">
           <i class="material-icons prefix"> attach_money </i>
