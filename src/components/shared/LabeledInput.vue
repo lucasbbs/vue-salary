@@ -12,7 +12,7 @@
       :value="formatValue"
       @input="!!onInputChange && onInputChange($event)"
       min="0"
-    >
+    />
   </label>
 </template>
 
@@ -60,7 +60,7 @@ export default {
      * a prop "currency"
      */
     formatValue: {
-      get: function() {
+      get: function () {
         if (!this.currency) return this.value;
 
         return Number(this.value).toLocaleString('pt-BR', {
@@ -73,8 +73,7 @@ export default {
 };
 </script>
 
-// Para estilos focados apenas
-// no componente, utilizamos 'scoped'
+// Para estilos focados apenas // no componente, utilizamos 'scoped'
 <style scoped>
 input,
 span {

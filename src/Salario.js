@@ -109,7 +109,8 @@ export class Salario {
     for (let item of tabelaINSS_2021) {
       if (this._baseINSS <= item.ate) {
         descontoINSS = (this._baseINSS * item.aliquota) / 100;
-        descontoINSS -= descontoINSS >= TETO_INSS_2021 ? 0 : item.deducao;
+        descontoINSS -= item.deducao;
+        console.log(descontoINSS);
         descontoINSS = Math.min(TETO_INSS_2021, descontoINSS);
         break;
       }
